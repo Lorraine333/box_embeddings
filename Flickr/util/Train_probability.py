@@ -142,8 +142,8 @@ class Training:
             training_1_pair = Sparse.pad_tensor(train1_sub, self.maxlength)
             training_2_pair = Sparse.pad_tensor(train2_sub, self.maxlength)
             feed_dict = {self.dataset1: training_1_pair, self.dataset2: training_2_pair, self.x_labels: batch_xlabels, self.y_labels: batch_ylabels, self.xy_labels: batch_xylabels, self.cpr_xy_labels: batch_cpr_xylabels, self.lengths1:batch_lens1, self.lengths2:batch_lens2, self.dropout_ph: self.dropout}
-            _, l, x_pred, y_pred, xy_pred, cpr_xy_pred, x_loss, cpr_loss, grad = self.sess.run([self.optimizer, self.mean_loss, self.x_predicted, self.y_predicted, self.xy_predicted, self.cpr_xy_predicted, self.x_loss, self.cpr_loss, self.gradient], feed_dict=feed_dict)
-            # l, x_pred, y_pred, xy_pred, cpr_xy_pred, x_loss, cpr_loss = self.sess.run([self.mean_loss, self.x_predicted, self.y_predicted, self.xy_predicted, self.cpr_xy_predicted, self.x_loss, self.cpr_loss], feed_dict=feed_dict)
+            # _, l, x_pred, y_pred, xy_pred, cpr_xy_pred, x_loss, cpr_loss, grad = self.sess.run([self.optimizer, self.mean_loss, self.x_predicted, self.y_predicted, self.xy_predicted, self.cpr_xy_predicted, self.x_loss, self.cpr_loss, self.gradient], feed_dict=feed_dict)
+            _, l, x_pred, y_pred, xy_pred, cpr_xy_pred, x_loss, cpr_loss = self.sess.run([self.optimizer, self.mean_loss, self.x_predicted, self.y_predicted, self.xy_predicted, self.cpr_xy_predicted, self.x_loss, self.cpr_loss], feed_dict=feed_dict)
             # print('finished')
             # print('l', l)
             # for gv, v in grad:

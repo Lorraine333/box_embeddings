@@ -140,7 +140,7 @@ def run(**args):
 
         elif args['mode'] == 'bilinear':
             print('bilinear')
-	    lstm = lstm_ops.LSTMBlockCell(args['hidden_dim'])
+            lstm = lstm_ops.LSTMBlockCell(args['hidden_dim'])
             lstm = tf.contrib.rnn.DropoutWrapper(lstm, output_keep_prob=dropout)
             fstate1, fstate2 = get_lstm_input(args['hidden_dim'], embeddings, inputs1, inputs2, lengths1, lengths2, dropout, lstm)
             joint_predicted, x_predicted, y_predicted, cpr_predicted, cpr_predicted_reverse = Bilinear.bilinear_model(args, fstate1, fstate2, bilinear_matrix)
@@ -156,9 +156,9 @@ def run(**args):
     optimizer = tf.train.AdamOptimizer(args['learning_rate'])
     varlist = graph.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, scope='prob')
     gradient = optimizer.compute_gradients(mean_loss, var_list= varlist)
-    train_op = optimizer.apply_gradients(gradient)
+    # train_op = optimizer.apply_gradients(gradient)
 
-    # train_op = optimizer.minimize(mean_loss, var_list=varlist)
+    train_op = optimizer.minimize(mean_loss, var_list=varlist)
 
     tf.set_random_seed(20160408)
     saver = tf.train.Saver(max_to_keep=10)
