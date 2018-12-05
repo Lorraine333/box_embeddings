@@ -1,6 +1,6 @@
 Tensorflow Implementation of ACL 2018 paper:
 
-####Probabilistic Embedding of Knowledge Graphs with Box Lattice Measures. Luke Vilnis*, Xiang Li*, Shikhar Murty, Andrew McCallum.
+Probabilistic Embedding of Knowledge Graphs with Box Lattice Measures. Luke Vilnis*, Xiang Li*, Shikhar Murty, Andrew McCallum.
 
 - WordNet and Flickr experiments can be done by running the main file. 
 - WordNet data is the  "Order-Embeddings of Images and Language" paper data, link here: https://github.com/ivendrov/order-embeddings-wordnet
